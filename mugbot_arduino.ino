@@ -27,6 +27,8 @@ int head_max = 180; //首の最大角度を設定
 
 int eye_light_default = 50; //目の明るさの通常値を設定
 
+int count = 0; // カウント用変数
+
 void setup()
 {   
    Serial.begin(9600);
@@ -125,34 +127,12 @@ void loop(){
         digitalWrite(l_mouse, HIGH);
         digitalWrite(m_mouse, HIGH);
         digitalWrite(r_mouse, HIGH);
-        eye_servo.write( 120 );
+				for(count=0;count<7;count++){
+        	eye_servo.write( 120 );
             delay(100 );
-        eye_servo.write( 100 );
+        	eye_servo.write( 100 );
             delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
-        eye_servo.write( 120 );
-            delay(100 );
-        eye_servo.write( 100 );
-            delay(100 ); 
+				}
         eye_servo.write( 120 );
             delay(100 );
         eye_servo.write( eye_default );
