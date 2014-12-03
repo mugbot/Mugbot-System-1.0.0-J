@@ -89,10 +89,7 @@ void loop(){
 
       case 't': //Rasberry Piからtを受け取ると口が点滅し、発話時の動作を行う。
             delay( 2000 );
-        digitalWrite(l_mouse, HIGH);
-        digitalWrite(m_mouse, HIGH);
-        digitalWrite(r_mouse, HIGH);
-            
+        mouth_LED(HIGH); 
         for ( pos = eye_default; pos < 110; pos += 1 ) {
           eye_servo.write( pos );
             delay( 15 );        
@@ -112,10 +109,7 @@ void loop(){
       case 'n': //Rasberry Piからnを受け取ると首、目の標準位置に戻す。
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
-        digitalWrite(r_mouse, LOW);
-        digitalWrite(l_mouse, LOW);
-        digitalWrite(m_mouse, LOW);
-
+				mouth_LED(LOW);
         eye_servo.write(eye_default); 
         head_servo.write(head_default); 
       break;
@@ -123,10 +117,7 @@ void loop(){
       case 'l': //Rasberry Piからlを受け取ると「笑う」のアクションを行う。
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
-         
-        digitalWrite(l_mouse, HIGH);
-        digitalWrite(m_mouse, HIGH);
-        digitalWrite(r_mouse, HIGH);
+				mouth_LED(HIGH);
 				for(count=0;count<7;count++){
         	eye_servo.write( 120 );
             delay(100 );
@@ -137,9 +128,7 @@ void loop(){
             delay(100 );
         eye_servo.write( eye_default );
             delay(100 );
-        digitalWrite(r_mouse, LOW);
-        digitalWrite(l_mouse, LOW);
-        digitalWrite(m_mouse, LOW);                  
+				mouth_LED(LOW);
       break;
  
       case 's': //Rasberry Piからsを受け取ると「悲しい」のアクションを行う。
@@ -158,9 +147,7 @@ void loop(){
 
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
-        digitalWrite(r_mouse, LOW);
-        digitalWrite(l_mouse, LOW);
-        digitalWrite(m_mouse, LOW);
+        mouth_LED(LOW);
       break;
 
       case 'h': //Rasberry Piからhを受け取ると「はい」のアクションを行う。
@@ -243,9 +230,7 @@ void loop(){
               
       case 'e': //Rasberry Piからeを受け取ると「ハイテンション」のアクションを行う。  
         for ( ch = 0; ch <5; ch += 1 ) {         
-          digitalWrite(l_mouse, HIGH);
-          digitalWrite(m_mouse, HIGH);
-          digitalWrite(r_mouse, HIGH);
+					mouth_LED(HIGH);
             
           analogWrite(l_eye, eye_light_default);
           digitalWrite(r_eye, LOW);
@@ -259,9 +244,7 @@ void loop(){
           analogWrite(l_eye, eye_light_default);
           analogWrite(r_eye, eye_light_default);
             delay( 100 );  
-          digitalWrite(l_mouse, LOW);
-          digitalWrite(m_mouse, LOW);
-          digitalWrite(r_mouse, LOW);  
+					mouth_LED(LOW);
             delay( 100 ); 
         }          
            
@@ -270,9 +253,7 @@ void loop(){
 
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
-        digitalWrite(r_mouse, LOW);
-        digitalWrite(l_mouse, LOW);
-        digitalWrite(m_mouse, LOW);
+				mouth_LED(LOW);
       break;  
 
       default:
@@ -281,10 +262,14 @@ void loop(){
 
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
-        digitalWrite(r_mouse, LOW);
-        digitalWrite(l_mouse, LOW);
-        digitalWrite(m_mouse, LOW);
+				mouth_LED(LOW);
       break;
     }
   }
+}
+
+void mouth_LED(int mode){
+   digitalWrite(r_mouse, mode);
+   digitalWrite(l_mouse, mode;
+   digitalWrite(m_mouse, mode);
 }
