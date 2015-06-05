@@ -3,10 +3,11 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
 sudo apt-get install apache2
-sudo Update -rc.D apache2 defaults
+sudo Update-rc.d apache2 defaults
 ruby -v
+gem -v
 sudo apt-get install ruby-dev
-sudo gem install EventMachine
+sudo gem install eventmachine
 sudo gem install serialport
 sudo gem install em-websocket
 mkdir temp
