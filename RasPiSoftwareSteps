@@ -13,14 +13,14 @@ sudo gem install em-websocket
 mkdir temp
 cd temp
 wget http://downloads.sourceforge.net/hts-engine/hts_engine_API-1.08.tar.gz
-tar zxvf Hts_engine_API-1.08.Tar.Gz
+tar zxvf Hts_engine_API-1.08.tar.gz
 cd hts_engine_API-1.08
 ./configure
 make
 sudo make install
 cd ..
 wget http://downloads.sourceforge.net/open-jtalk/open_jtalk-1.07.tar.gz
-tar zxvf Open_jtalk - 1.07.Tar.Gz
+tar zxvf Open_jtalk-1.07.tar.gz
 cd Open_jtalk-1.07
 ./configure --with-charset=UTF-8
 make
