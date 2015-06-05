@@ -90,7 +90,7 @@ void loop(){
         g=0;
       break;
 
-      case 't': //Mouth blink.
+      case 't': //Mouth blink/start talking. Ends with 'n'.
             delay( 2000 );
         digitalWrite(l_mouse, HIGH);
         digitalWrite(m_mouse, HIGH);
@@ -112,7 +112,7 @@ void loop(){
         } ;         
       break;
 
-      case 'n': //Reset to defaults
+      case 'n': //Reset to defaults/stop talking(paired with 't')
         analogWrite(l_eye, eye_light_default);
         analogWrite(r_eye, eye_light_default);
         digitalWrite(r_mouse, LOW);
