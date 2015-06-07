@@ -1,0 +1,98 @@
+To Do In Order on Raspberry Pi (In Order, From Mugbot RasPi setup instructions)
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install apache2
+sudo Update-rc.d apache2 defaults
+ruby -v
+gem -v
+sudo apt-get install ruby-dev
+sudo gem install eventmachine
+sudo gem install serialport
+sudo gem install em-websocket
+mkdir temp
+cd temp
+wget http://downloads.sourceforge.net/hts-engine/hts_engine_API-1.08.tar.gz
+tar zxvf Hts_engine_API-1.08.tar.gz
+cd hts_engine_API-1.08
+./configure
+make
+sudo make install
+cd ..
+wget http://downloads.sourceforge.net/open-jtalk/open_jtalk-1.07.tar.gz
+tar zxvf Open_jtalk-1.07.tar.gz
+cd Open_jtalk-1.07
+./configure --with-charset=UTF-8
+make
+sudo make install
+cd ..
+wget http://downloads.sourceforge.net/project/open-jtalk/Dictionary/open_jtalk_dic-1.07/open_jtalk_dic_utf_8-1.07.tar.gz
+tar zxvf Open_jtalk_dic_utf_8 - 1.07.Tar.Gz
+sudo mkdir/usr/local/share/Open_jtalk
+sudo mv ./open_jtalk_dic_utf_8-1.07 /usr/local/share/open_jtalk/
+aawget http://downloads.sourceforge.net/open-jtalk/hts_voice_nitech_jp_atr503_m001-1.05.tar.gz
+tar zxvf hts_voice_nitech_jp_atr503_m001-1.05.tar.gz
+sudo mkdir /usr/local/share/hts_voice
+sudo mv ./hts_voice_nitech_jp_atr503_m001-1.05  /usr/local/share/hts_voice/
+wget http://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.4/MMDAgent_Example-1.4.zip
+unzip MMDAgent_Example - 1.4.Zip
+sudo cp -R MMDAgent_Example-1.4/Voice/* /usr/local/share/hts_voice/
+bash
+cd ..
+sudo mkdir bin
+cd bin
+sudo nano Jsay.sh
+
+#!/bin/sh
+TMP="/tmp/jsay.wav"
+echo "$1" | /usr/local/bin/open_jtalk \
+-x /usr/local/share/open_jtalk/open_jtalk_dic_utf_8-1.07 \
+-m /usr/local/share/hts_voice/mei/mei_happy.htsvoice \
+-r 1.0 \
+-s 48000 \
+-p 240 \
+-a 0.58 \
+-u 0.0 \
+-jm 0.7 \
+-jf 0.5 \
+-z 48000 \
+-ow $TMP &amp;&amp; \
+aplay --quiet $TMP
+rm -f $TMP
+
+sudo chmod +x ~/bin/Jsay
+Jsay Nice to meet you
+sudo apt-Get install isc-dhcp-Server
+sudo nano/etc/dhcp/dhcpd.conf
+
+It will change the following content. 
+(Comment out with a # at the option domain-name and option domain-name-server, and remove the # of authoritative.)
+..........
+#option domain-name "exanple.org";
+#option domain-name-server ns1.example.org, ns2.example.org;
+ 
+#If this DHCP server is the official DHCP server for the local
+#network, the authoritative directive should be uncommented.
+authoritative;
+..........
+subnet 192.168.42.0 netmask 255.255.255.0 {
+range 192.168.42.10 192.168.42.50;
+option broadcast-address 192.168.42.255;
+option routers 192.168.42.1;
+default-lease-time 600;
+max-lease-time 7200;
+option domain-name "local";
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+}
+The contents of the change, if additional is complete, save the "cont + O → Enter" to exit the nano editor in "cont + X". 
+It will change the contents of the "isc-dhcp-server". $ sudo nano/etc/default/isc-dhcp-Server
+sudo reboot
+
+And "jQuery" and "jQuery Mobile" it will download to the PC.
+http://jquery.com/　to access to, and then click the "Download jQuery".
+Then source code such as the following can be downloaded. 
+(2014/10/30 current latest version of jquery-1.11.1.min.js)
+Then I downloaded the "jQuery Mobile". http://jquerymobile.com/download/ to access to,: Click the "Zip File jquery.mobile-1.4.4.zip".
+Then, because the zip file can be downloaded, it is as follows when you deploy. 
+(2014/10/30 is currently the latest version jquery.mobile-1.4.4.min.css and jquery.mobile-1.4.4.min.js)
+
